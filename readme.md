@@ -24,7 +24,12 @@ function section:
 >+>add the letter to the "right guessed list of letters".
 >+>decrease counter of guessess amount
 
++1 var for score (how many times the user guesed the word correctly)
 
 
-
--1 var for score (how many times the user guesed the word correctly)
+style section:
++create style.css
++add bootstrap
++create a grid
+-choose any theme for my game
+-edit style.css

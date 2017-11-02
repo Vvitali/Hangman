@@ -6,14 +6,17 @@
 function section:
 - print "_" print the number of times equal to the length of a word
 
+-select a word from the list of word
+
+
 +get the pressed key event >>
 
 +get the pressed key letter >>
 
--check if this key is existed in list of guessed letters
--and list of wrong guessed letters
++check if this key is existed in the list of guessed letters
 
--check if this key is existed in the word
+
++check if this key is existed in the word
 -0f this key is existed in the word >>
 >->show ALL such letters in the the field
 >->add the letter to the "right guessed list of letters".

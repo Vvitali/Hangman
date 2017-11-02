@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
-    <script type="text/javascript" src="script.js"></script>
+
 </head>
 
-<body onkeyup="onInput1()">
-    <form>
-        <h1>Original string</h1>
-        <input name="originalString">
-        <h1>Encrypted string</h1>
-        <input name="outputString">
-    </form>
+<body onkeyup="game.onInput(event)">
 
+    <p id="theword">The word!</p>
+    <p id="guessesRemain">Guesses remaining</p>
 
-
+    <script type="text/javascript" src="script.js"></script>
 
 </body>
 

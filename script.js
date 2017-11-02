@@ -1,23 +1,22 @@
 var theWord = document.getElementById("theword");
-var remainGuesses = document.getElementById("guessesRemain");;
+var remainGuesses = document.getElementById("guessesRemain");
 var wordlist = ["word", "mother", "dog", "Honorificabilitudinitatibus", "Aluminium "];
 
 
-theWord.innerHTML = "TEST";
-remainGuesses.innerHTML = "TEST";
 
 var gameM = {
+
     guessedList: [],
+    underscorePlaceHolder: "",
     secretWord: undefined,
 
     generateWord: function() {
-        this.secretWord = wordlist[Math.floor(Math.random * wordlist.length)];
+        this.secretWord = wordlist[Math.floor(Math.random() * wordlist.length)];
         console.log("SecretWord: " + this.secretWord);
     },
 
     onInput: function(event) {
-        console.log(event.key);
-        return event.key.toLowerCase();
+        console.log(event.key.toLowerCase());
     },
 
     checkTheList: function(theKey) {
@@ -35,24 +34,29 @@ var gameM = {
             return 0;
         }
         else { return 1; }
+    },
+
+    initializeHtmlByUnderscore: function(length) {
+        var underscores = "";
+        for (var i = 0; i < length; i++) {
+            underscores += "_ ";
+        }
+        theWord.innerHTML = underscores;
+        this.underscorePlaceHolder = underscores;
+    },
+
+    updateUnderScorePlaceHolder: function(position, letter) {
+        console.log("Holder: " + this.underscorePlaceHolder);
+        this.underscorePlaceHolder[position] = letter;
+        console.log("Holder: " + this.underscorePlaceHolder);
+        console.log("New letter " + letter + ", on the position#" + position);
+        theWord.innerHTML = this.underscorePlaceHolder;
     }
 
 }
-
-
+//generate the word
 this.gameM.generateWord();
-theWord.innerHTML = gameM.secretWord;
-
-function onInput1() {
-
-
-
-    document.forms[0].originalString.value
-
-    var originalString = document.forms[0].originalString;
-    var outputString = document.forms[0].outputString;
-    outputString.value = parseInt(originalString.value, 10);
-    console.log(originalString.value);
-    console.log(outputString.value);
-
-}
+//put a underscore-placeholder to the html
+this.gameM.initializeHtmlByUnderscore(gameM.secretWord.length);
+//update placeholder with new-letter
+this.gameM.updateUnderScorePlaceHolder(2, "k");

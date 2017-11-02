@@ -6,7 +6,8 @@
 function section:
 - print "_" print the number of times equal to the length of a word
 
--select a word from the list of word
++generate a word from the list of word
++set the HTML element with "_ _ _"
 
 
 +get the pressed key event >>
@@ -17,6 +18,7 @@ function section:
 
 
 +check if this key is existed in the word
+
 -0f this key is existed in the word >>
 >->show ALL such letters in the the field
 >->add the letter to the "right guessed list of letters".

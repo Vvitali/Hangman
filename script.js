@@ -2,6 +2,8 @@ var theWord = document.getElementById("theword");
 var remainGuessesH = document.getElementById("guessesRemain");
 var wordlist = ["word", "mother", "dog", "english", "aluminium", "music", "advertisement"];
 var attempts = 10;
+var guessedListH = document.getElementById("guessedList");
+var winsCounter = 0;
 
 var gameM = {
 
@@ -17,6 +19,7 @@ var gameM = {
     onInput: function(event) {
         var thePressedKey = event.key.toLowerCase();
         remainGuessesH.innerHTML = --attempts;
+        guessedListH.innerHTML = this.guessedList;
 
         console.log("Pressed:" + thePressedKey);
         //if statement - only for debuging
@@ -28,8 +31,12 @@ var gameM = {
                 this.gameM.updateUnderScorePlaceHolder(element, thePressedKey);
             })
         }
+        guessedListH.innerHTML = this.guessedList;
         if (this.secretWord === this.underscorePlaceHolder.join("")) {
             alert("YOU ARE WINNER! The word is: " + this.secretWord);
+            winsCounter++;
+            document.getElementById("winsCounter").innerHTML = ("Wins: " + winsCounter);
+            this.newGame();
         }
         if (attempts === 0) {
             alert("You lose! The word is: " + this.secretWord);
@@ -95,7 +102,7 @@ var gameM = {
         //2) put a underscore-placeholder to the html
         this.initializeHtmlByUnderscore(gameM.secretWord.length);
         attempts = 10;
-
+        this.guessedList = [];
         //3)  if the letter exists in the word - this stage is running only when user pressed any key (Check  onInput() function)
 
     }

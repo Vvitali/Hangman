@@ -19,10 +19,10 @@ function section:
 
 +check if this key is existed in the word
 
--0f this key is existed in the word >>
->->show ALL such letters in the the field
->->add the letter to the "right guessed list of letters".
->->decrease counter of guessess amount
++0f this key is existed in the word >>
+>+>show ALL such letters in the the field
+>+>add the letter to the "right guessed list of letters".
+>+>decrease counter of guessess amount
 
 
 

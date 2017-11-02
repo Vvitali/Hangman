@@ -1,6 +1,7 @@
 var theWord = document.getElementById("theword");
-var remainGuesses = document.getElementById("guessesRemain");
-var wordlist = ["word", "mother", "dog", "English", "aluminium", "music", "advertisement"];
+var remainGuessesH = document.getElementById("guessesRemain");
+var wordlist = ["word", "mother", "dog", "english", "aluminium", "music", "advertisement"];
+var attempts = 10;
 
 var gameM = {
 
@@ -15,6 +16,8 @@ var gameM = {
 
     onInput: function(event) {
         var thePressedKey = event.key.toLowerCase();
+        remainGuessesH.innerHTML = --attempts;
+
         console.log("Pressed:" + thePressedKey);
         //if statement - only for debuging
         if (this.checkTheList(thePressedKey)) { console.log(thePressedKey + " letter already  does exist in the list") };
@@ -25,6 +28,14 @@ var gameM = {
                 this.gameM.updateUnderScorePlaceHolder(element, thePressedKey);
             })
         }
+        if (this.secretWord === this.underscorePlaceHolder.join("")) {
+            alert("YOU ARE WINNER! The word is: " + this.secretWord);
+        }
+        if (attempts === 0) {
+            alert("You lose! The word is: " + this.secretWord);
+            this.newGame();
+        }
+
     },
 
     checkTheList: function(theKey) {
@@ -67,6 +78,7 @@ var gameM = {
         //update html element
         theWord.innerHTML = this.underscorePlaceHolder.join(" ");
     },
+
     //Calculate how many times the letter excists in the word
     indexesOfLetter: function(letter) {
         var indexes = [];
@@ -74,17 +86,18 @@ var gameM = {
         for (var i = 0; i < this.secretWord.length; i++)
             if (this.secretWord[i] === letter) indexes.push(i);
         return indexes;
+    },
+
+    newGame: function() {
+        document.body.setAttribute("onkeyup", "gameM.onInput(event)")
+        //1) generate the word
+        this.generateWord();
+        //2) put a underscore-placeholder to the html
+        this.initializeHtmlByUnderscore(gameM.secretWord.length);
+        attempts = 10;
+
+        //3)  if the letter exists in the word - this stage is running only when user pressed any key (Check  onInput() function)
+
     }
 
 }
-//1) generate the word
-this.gameM.generateWord();
-//2) put a underscore-placeholder to the html
-this.gameM.initializeHtmlByUnderscore(gameM.secretWord.length);
-
-//check if the letter exists in the word - this stage is running only when user pressed any key (Check function onInput())
-
-
-
-//update placeholder with new-letter
-//

@@ -1,3 +1,7 @@
+My theme is The Matrix.
+link: https://vvitali.github.io/Hangman/
+
+myreq:
 +1 var for word ("______ at beggining", and something like m_ad_nn_a in the middle of the game)
 +1 var for # of guesses remaining
 -1 var for letters already guessed
@@ -33,3 +37,5 @@ style section:
 +create a grid
 -choose any theme for my game
 -edit style.css
+
+//The matrix  effect on the background - http://get-element.3dn.ru/load/html_i_dhtml/ehffekt_matricy_sredstvami_canvas/7-1-0-470

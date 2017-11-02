@@ -12,17 +12,22 @@
 </head>
 
 <body onkeyup="gameM.newGame()">
+    <canvas class="header" id="q"></canvas>
     <div class="container">
+        <div class="raw">
+            <div class="col-md-12" style="height:150px">
 
+            </div>
+        </div>
         <div class="raw">
 
-            <div class="col-md-6">
+            <div class="col-md-6 mainPart">
                 <h1>Press any key to get started!</h1>
                 <h2>The word:</h2>
                 <p id="theword">The word!</p>
 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mainPart">
                 <h2>Letters Already Guessed:</h2>
                 <p id="guessedList"></p>
 
@@ -30,6 +35,7 @@
                 <p id="winsCounter"></p>
                 <h2>Guesses remaining:</h2>
                 <p id="guessesRemain">Guesses remaining</p>
+
             </div>
         </div>
 
@@ -37,7 +43,7 @@
 
 
     <script type="text/javascript" src="script.js"></script>
-
+    <script type="text/javascript" src="header.js"></script>
 
 </body>
 
